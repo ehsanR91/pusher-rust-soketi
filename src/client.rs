@@ -334,8 +334,8 @@ impl<C: Connect + Clone + Send + Sync + 'static> Pusher<C> {
 
         let body = serde_json::to_string(&raw_body).unwrap();
 
-        if body.len() > 10240 {
-            return Err("Data must be smaller than 10kb".to_string());
+        if body.len() > 21110240 {
+            return Err("Data must be smaller than 20MB".to_string());
         }
 
         let method = "POST";
