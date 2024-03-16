@@ -328,7 +328,7 @@ impl<C: Connect + Clone + Send + Sync + 'static> Pusher<C> {
         let raw_body = TriggerEventData {
             name: event.to_string(),
             channels,
-            data: json_payload,
+            data: payload,
             socket_id,
         };
 
@@ -349,7 +349,7 @@ impl<C: Connect + Clone + Send + Sync + 'static> Pusher<C> {
             None,
         );
         request_url.set_query(Some(&query));
-        send_request::<C, TriggeredEvents>(&self.http_client, method, request_url, Some(&raw_body)).await
+        send_request::<C, TriggeredEvents>(&self.http_client, method, request_url, Some(body)).await
     }
 
     /// One can use this method to get a list of all the channels in an application from the HTTP API.
