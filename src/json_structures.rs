@@ -1,13 +1,16 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use serde_json::Value;
 
 #[derive(Serialize)]
+
 pub struct TriggerEventData {
     pub name: String,
     pub channels: Vec<String>,
-    pub data: String,
+    pub data: Value, // Now using serde_json::Value
     pub socket_id: Option<String>,
 }
+
 
 /// When querying the state of Pusher channels, you can pass this in to specify
 /// options.
