@@ -1,4 +1,4 @@
-# Pusher HTTP Rust Library
+# Pusher HTTP Rust Library ( Soketi Compatible - Fully unlocked)
 
 [![Build Status](https://github.com/pusher-community/pusher-http-rust/workflows/Tests/badge.svg)](https://github.com/pusher-community/pusher-http-rust/actions)
 [![Crates Badge](https://img.shields.io/crates/v/pusher)](https://crates.io/crates/pusher)
