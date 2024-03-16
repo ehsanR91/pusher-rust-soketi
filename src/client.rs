@@ -323,12 +323,13 @@ impl<C: Connect + Clone + Send + Sync + 'static> Pusher<C> {
         );
         let mut request_url = Url::parse(&request_url_string).unwrap();
 
-        let json_payload = serde_json::to_string(&payload).unwrap();
+        let json_payload =  serde_json::to_string(&payload)
+        .map_err(|e| e.to_string())?;
 
         let raw_body = TriggerEventData {
             name: event.to_string(),
             channels,
-            data: payload,
+            data: json_payload,
             socket_id,
         };
 
